@@ -1,0 +1,23 @@
+nav{
+    top:0;
+    padding-top:.5rem;
+    padding-bottom:.5rem;
+}
+
+nav .navbar-collapse.collapse{
+    display:block;
+}
+
+@media (max-width: 991px) {
+    nav .navbar-collapse.collapse{
+       overflow:hidden;
+    }
+    nav .navbar-collapse.active{
+        height:35vh !important;
+    }
+}
+
+nav .navbar-collapse{
+    transition:.5s all ease-in-out;
+    height:0 !important;
+}

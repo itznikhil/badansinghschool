@@ -1,0 +1,75 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.cover-bg{
+  width:100%;
+  height:90vh;
+  background-image: url(../images/img1.JPG);
+  background-size: cover;
+  background-position: center;
+  display: grid;
+  place-items: center;
+}
+
+.orange-bg-color{
+  background-color: rgb(197, 90, 17) !important;
+}
+
+.orange-text-color{
+  color: rgb(197, 90, 17) !important;
+}
+
+.dark-bg-color{
+  background-color: rgb(59, 56, 56);
+}
+
+.text-48{
+  font-size: 48px;
+}
+.text-36{
+  font-size: 36px;
+}
+.text-24{
+  font-size: 24px;
+}
+.text-18{
+  font-size: 18px;
+  line-height: 2px;
+}
+.text-15{
+  font-size: 14px;
+}
+.text-12{
+  font-size: 12px;
+}
+
+.text-justify{
+  text-align: justify;
+}
+
+.logo{
+  width: 50px;
+  height: 50px;
+}
+
+@media screen and (max-width:500px){
+  .text-15{
+    font-size: 11px !important;
+  }
+
+  .logo{
+    width: 30px;
+    height: 30px;
+}
+}
