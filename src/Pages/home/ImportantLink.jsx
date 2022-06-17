@@ -26,7 +26,7 @@ export const ImportantLink = ({ heading, children }) => {
                 href={baseUrl + "/uploads/" + item.file.split("\\")[1]}
                 download="proposed_file_name"
               >
-                {item.file.split("\\")[1]}
+                {item.message}
               </a>
             </div>
           );
