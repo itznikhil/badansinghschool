@@ -10,7 +10,7 @@ export const Header = () => {
     <div>
       <span className="orange-bg-color p-2 ps-2 pe-2 d-flex justify-content-between mb-0">
         <span className="text-white fw-bold text-15">
-          Call Now : +91-9999999999
+          Call Now : +91-9084088146
         </span>
         <a
           className="text-white fw-bold text-decoration-none text-15"
@@ -50,13 +50,13 @@ export const Header = () => {
           <div
             className={
               showNav
-                ? "collapse navbar-collapse"
-                : "collapse navbar-collapse active"
+                ? "collapse navbar-collapse active"
+                : "collapse navbar-collapse "
             }
             id="navbarNav"
           >
             <ul className="navbar-nav ms-auto text-15 ">
-              {isLoggedIn ? (
+              {localStorage.getItem("auth") ? (
                 <li className="nav-item">
                   <button
                     className="btn btn-link text-decoration-none orange-text-color fw-bold"
