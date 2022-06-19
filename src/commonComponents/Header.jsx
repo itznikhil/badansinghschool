@@ -56,7 +56,7 @@ export const Header = () => {
             id="navbarNav"
           >
             <ul className="navbar-nav ms-auto text-15 ">
-              {isLoggedIn ? (
+              {localStorage.getItem("auth") ? (
                 <li className="nav-item">
                   <button
                     className="btn btn-link text-decoration-none orange-text-color fw-bold"
