@@ -4,7 +4,6 @@ import baseURL from "./baseUrl.js";
 
 const client = axios.create({
   baseURL: baseURL + "/api/v1",
-  timeout: 1000,
   headers: {
     "Content-Type": "application/json",
     Authorization: `Bearer ${localStorage.getItem("auth")}`,

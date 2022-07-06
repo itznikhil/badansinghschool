@@ -53,7 +53,6 @@ export const Result = () => {
     client
       .post("/result", formData, {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem("auth")}`,
           "Content-Type": "multipart/form-data",
         },
       })

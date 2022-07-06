@@ -39,7 +39,6 @@ export const NoticeBoard = () => {
     client
       .post("/noticeboard", formData, {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem("auth")}`,
           "Content-Type": "multipart/form-data",
         },
       })

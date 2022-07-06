@@ -41,7 +41,6 @@ export const ImportantLinks = () => {
     client
       .post("/importantlink", formData, {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem("auth")}`,
           "Content-Type": "multipart/form-data",
         },
       })

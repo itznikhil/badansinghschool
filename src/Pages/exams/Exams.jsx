@@ -23,11 +23,7 @@ export const Exams = () => {
       class: inputVal.class,
     };
     axios
-      .post(baseUrl + "/api/v1/result/getByClassAndYear", formData, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      })
+      .post(baseUrl + "/api/v1/result/getByClassAndYear", formData)
       .then((res) => {
         if (res.data.length === 0) {
           window.alert("No results found");
