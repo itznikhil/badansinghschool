@@ -19,9 +19,17 @@ export const ChangePassword = () => {
       window.alert("Password not matched");
     } else {
       client
-        .put(`/users/profile`, {
-          password: inputVal.newPassword,
-        })
+        .put(
+          `/users/profile`,
+          {
+            password: inputVal.newPassword,
+          },
+          {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem("token")}`,
+            },
+          }
+        )
         .then((res) => {
           setInputVal({
             newPassword: "",

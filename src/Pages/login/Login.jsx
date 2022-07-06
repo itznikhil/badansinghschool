@@ -29,9 +29,8 @@ export const Login = () => {
     if (uname !== "" && pass !== "") {
       client
         .post("/users/login", { email: uname, password: pass })
-
         .then((data) => {
-          localStorage.setItem("auth", data.data.token);
+          localStorage.setItem("token", data.data.token);
           handleLogin();
           navigate("/dashboard", { replace: true });
         })

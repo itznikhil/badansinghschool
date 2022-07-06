@@ -8,7 +8,11 @@ export const NoticeBoard = () => {
   const [data, setData] = useState([]);
   const deleteNoticeBoard = (id) => {
     client
-      .delete(`/noticeboard/${id}`)
+      .delete(`/noticeboard/${id}`, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      })
       .then((res) => {
         getData();
         window.alert(res.data.message);
@@ -19,7 +23,11 @@ export const NoticeBoard = () => {
   };
   const getData = () => {
     client
-      .get("/noticeboard")
+      .get("/noticeboard", {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      })
       .then((res) => {
         setData(res.data);
       })
@@ -39,6 +47,8 @@ export const NoticeBoard = () => {
     client
       .post("/noticeboard", formData, {
         headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+
           "Content-Type": "multipart/form-data",
         },
       })
@@ -81,10 +91,10 @@ export const NoticeBoard = () => {
                   <td>{item.message}</td>
                   <td>
                     <a
-                      href={baseUrl + "/uploads/" + item.file.split("\\")[1]}
+                      href={baseUrl + "/uploads/" + item.file.split("/")[1]}
                       download="proposed_file_name"
                     >
-                      {item.file.split("\\")[1]}
+                      {item.file.split("/")[1]}
                     </a>
                   </td>
                   <td>

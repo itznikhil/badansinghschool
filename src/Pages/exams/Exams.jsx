@@ -29,7 +29,7 @@ export const Exams = () => {
           window.alert("No results found");
         } else {
           window.location.href =
-            baseUrl + "/uploads/" + res.data[0].file.split("\\")[1];
+            baseUrl + "/uploads/" + res.data[0].file.split("/")[1];
           window.alert("Successfully Downloaded");
           setInputVal("");
         }

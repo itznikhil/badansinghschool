@@ -19,7 +19,11 @@ export const Result = () => {
 
   const deleteResult = (id) => {
     client
-      .delete(`/result/${id}`)
+      .delete(`/result/${id}`, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      })
       .then((res) => {
         getData();
         window.alert(res.data.message);
@@ -31,7 +35,11 @@ export const Result = () => {
 
   const getData = () => {
     client
-      .get("/result")
+      .get("/result", {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      })
       .then((res) => {
         setData(res.data);
       })
@@ -53,6 +61,8 @@ export const Result = () => {
     client
       .post("/result", formData, {
         headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+
           "Content-Type": "multipart/form-data",
         },
       })
@@ -99,10 +109,10 @@ export const Result = () => {
                   <td>{item.class}</td>
                   <td>
                     <a
-                      href={baseUrl + "/uploads/" + item.file.split("\\")[1]}
+                      href={baseUrl + "/uploads/" + item.file.split("/")[1]}
                       download="proposed_file_name"
                     >
-                      {item.file.split("\\")[1]}
+                      {item.file.split("/")[1]}
                     </a>
                   </td>
                   <td>

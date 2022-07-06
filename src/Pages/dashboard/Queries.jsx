@@ -6,7 +6,11 @@ export const Queries = () => {
 
   const deleteQuery = (id) => {
     client
-      .delete(`/queries/${id}`)
+      .delete(`/queries/${id}`, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      })
       .then((res) => {
         window.alert(res.data.message);
       })
@@ -18,7 +22,11 @@ export const Queries = () => {
 
   const getData = () => {
     client
-      .get("/queries")
+      .get("/queries", {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      })
       .then((res) => {
         setData(res.data);
       })

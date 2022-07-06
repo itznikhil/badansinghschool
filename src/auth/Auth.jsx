@@ -8,7 +8,7 @@ export const AuthContext = createContext({
 
 export const AuthContextProvider = ({ children }) => {
   const [isLoggedIn, setLogin] = useState(
-    localStorage.getItem("auth") ? true : false
+    localStorage.getItem("token") ? true : false
   );
   const handleLogin = () => setLogin(true);
   const handleLogout = () => setLogin(false);

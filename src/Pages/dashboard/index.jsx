@@ -22,7 +22,7 @@ export const Dashboard = () => {
 
   const logout = () => {
     dashboardState.set("");
-    localStorage.setItem("auth", null);
+    localStorage.setItem("token", null);
     handleLogout();
   };
 

@@ -5,7 +5,11 @@ export const ImportantLink = ({ heading, children }) => {
   const [data, setData] = React.useState([]);
   useEffect(() => {
     client
-      .get("/importantlink")
+      .get("/importantlink", {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      })
       .then((res) => {
         setData(res.data);
       })
@@ -23,7 +27,7 @@ export const ImportantLink = ({ heading, children }) => {
           return (
             <div key={index} className="card-text">
               <a
-                href={baseUrl + "/uploads/" + item.file.split("\\")[1]}
+                href={baseUrl + "/uploads/" + item.file.split("/")[1]}
                 download="proposed_file_name"
               >
                 {item.message}

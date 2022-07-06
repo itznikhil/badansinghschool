@@ -1,15 +1,15 @@
-import React,{useContext,useEffect} from 'react'
-import { useNavigate, Outlet } from "react-router-dom"
-import { AuthContext } from './Auth'
+import React, { useContext, useEffect } from "react";
+import { useNavigate, Outlet } from "react-router-dom";
+import { AuthContext } from "./Auth";
 
 export const ProtectedRoutes = () => {
-  const { isLoggedIn } = useContext(AuthContext)  
-  const navigate = useNavigate()
+  const { isLoggedIn } = useContext(AuthContext);
+  const navigate = useNavigate();
   useEffect(() => {
-    if(!isLoggedIn){
-        localStorage.removeItem("auth")
-        navigate("/login")
+    if (!isLoggedIn) {
+      localStorage.removeItem("token");
+      navigate("/login");
     }
-  },[isLoggedIn])
-  return <Outlet/>
-}
+  }, [isLoggedIn]);
+  return <Outlet />;
+};

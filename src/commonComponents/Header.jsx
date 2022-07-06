@@ -56,13 +56,13 @@ export const Header = () => {
             id="navbarNav"
           >
             <ul className="navbar-nav ms-auto text-15 ">
-              {localStorage.getItem("auth") ? (
+              {localStorage.getItem("token") ? (
                 <li className="nav-item">
                   <button
                     className="btn btn-link text-decoration-none orange-text-color fw-bold"
                     type="button"
                     onClick={() => {
-                      localStorage.setItem("auth", null);
+                      localStorage.setItem("token", null);
                       handleLogout();
                     }}
                   >

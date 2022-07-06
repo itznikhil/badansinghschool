@@ -8,7 +8,11 @@ export const ImportantLinks = () => {
   const [data, setData] = useState([]);
   const deleteImportantLink = (id) => {
     client
-      .delete(`/importantlink/${id}`)
+      .delete(`/importantlink/${id}`, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      })
       .then((res) => {
         getData();
         window.alert(res.data.message);
@@ -20,7 +24,11 @@ export const ImportantLinks = () => {
 
   const getData = () => {
     client
-      .get("/importantlink")
+      .get("/importantlink", {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      })
       .then((res) => {
         setData(res.data);
       })
@@ -41,6 +49,8 @@ export const ImportantLinks = () => {
     client
       .post("/importantlink", formData, {
         headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+
           "Content-Type": "multipart/form-data",
         },
       })
@@ -83,10 +93,10 @@ export const ImportantLinks = () => {
                   <td>{item.message}</td>
                   <td>
                     <a
-                      href={baseUrl + "/uploads/" + item.file.split("\\")[1]}
+                      href={baseUrl + "/uploads/" + item.file.split("/")[1]}
                       download="proposed_file_name"
                     >
-                      {item.file.split("\\")[1]}
+                      {item.file.split("/")[1]}
                     </a>
                   </td>
                   <td>
