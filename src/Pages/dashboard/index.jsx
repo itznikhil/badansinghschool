@@ -24,6 +24,7 @@ export const Dashboard = () => {
     dashboardState.set("");
     localStorage.setItem("token", null);
     handleLogout();
+    window.location.reload();
   };
 
   const showUI = () => {

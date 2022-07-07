@@ -64,6 +64,8 @@ export const Header = () => {
                     onClick={() => {
                       localStorage.setItem("token", null);
                       handleLogout();
+
+                      window.location.reload();
                     }}
                   >
                     Logout
